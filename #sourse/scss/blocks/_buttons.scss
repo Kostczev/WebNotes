@@ -1,0 +1,56 @@
+.buttons {
+   display: grid;
+   row-gap: 10px;
+   //display: flex;
+   //flex-direction: column;
+   &__button {
+      //margin: 5px 0;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      transition-property: border, background-color, color;
+      transition-duration: .3s;
+      position: relative;
+      z-index: 1;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid;
+      border-radius: 5px;
+      overflow: hidden;
+      &::after{
+         transition: left .3s;
+         content: "";
+         position: absolute;
+         z-index: -1;
+         height: 100%;
+         width: 100%;
+         top: 0;
+         left:-100%;
+      }
+      &:hover::after{
+         left: 0;
+      }
+      .dark-mode &{
+         background-color: $palette_1-color_2;
+         color: $palette_1-color_5;
+         border-color: $palette_1-color_4;
+         &::after{
+            background-color: $palette_1-color_3;
+         }
+         &:hover{
+            color: $palette_1-color_4;
+         }
+      }
+      .light-mode &{
+         background-color: $palette_2-color_2;
+         color: $palette_2-color_5;
+         border-color: $palette_2-color_4;
+         &::after{
+            background-color: $palette_2-color_3;
+         }
+         &:hover{
+            color: $palette_2-color_4;
+         }
+      }
+   }
+}
